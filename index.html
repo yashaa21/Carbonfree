@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carbon-Free Initiative</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f0fdf4; color: #064e3b; }
+    header { background: #047857; padding: 20px; text-align: center; color: white; }
+    header h1 { margin: 0; }
+    nav { margin-top: 10px; }
+    nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    section { padding: 40px; text-align: center; display: none; }
+    section.active { display: block; }
+
+    h2 { color: #065f46; margin-bottom: 20px; }
+    p { max-width: 700px; margin: 0 auto 20px; font-size: 18px; line-height: 1.6; }
+
+    img { max-width: 80%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+    footer { background: #047857; padding: 15px; text-align: center; color: white; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌍 Carbon-Free Initiative</h1>
+    <nav>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('initiatives')">Initiatives</a>
+    </nav>
+  </header>
+
+  <!-- Home Page -->
+  <section id="home" class="active">
+    <h2>Welcome to the Carbon-Free Initiative</h2>
+    <p>We are committed to creating a sustainable future by promoting eco-friendly practices, renewable energy, and tree planting initiatives.</p>
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Forest">
+  </section>
+
+  <!-- About Page -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>The Carbon-Free Initiative is a movement to inspire individuals and communities to reduce their carbon footprint. Together, we can tackle climate change and build a greener planet.</p>
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Solar panels">
+  </section>
+
+  <!-- Initiatives Page -->
+  <section id="initiatives">
+    <h2>Our Initiatives</h2>
+    <p>✔ Planting trees to absorb CO₂<br>✔ Promoting renewable energy like solar and wind<br>✔ Educating communities about sustainability<br>✔ Encouraging green transportation</p>
+    <img src="https://images.unsplash.com/photo-1523978591478-c753949ff840" alt="Tree planting">
+  </section>
+
+  <footer>
+    <p>© 2025 Carbon-Free Initiative | Built with ❤️ for a greener planet</p>
+  </footer>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+    }
+  </script>
+</body>
+</html>
+
