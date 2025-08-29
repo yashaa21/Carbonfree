@@ -3,26 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <title>Carbon-Free Initiative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f0fdf4; color: #064e3b; }
-    header { background: #047857; padding: 20px; text-align: center; color: white; }
-    header h1 { margin: 0; }
-    nav { margin-top: 10px; }
-    nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
+    /* Global */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ecfdf5, #d1fae5);
+      color: #064e3b;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-    section { padding: 40px; text-align: center; display: none; }
-    section.active { display: block; }
+    h1, h2 {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-    h2 { color: #065f46; margin-bottom: 20px; }
-    p { max-width: 700px; margin: 0 auto 20px; font-size: 18px; line-height: 1.6; }
+    p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
 
-    img { max-width: 80%; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    /* Floating Eco Icons */
+    .floating-icon {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.15;
+      animation: floatIcons 12s infinite ease-in-out;
+    }
 
-    footer { background: #047857; padding: 15px; text-align: center; color: white; margin-top: 30px; }
+    .icon1 { top: 15%; left: 10%; animation-delay: 0s; }
+    .icon2 { top: 40%; left: 85%; animation-delay: 3s; }
+    .icon3 { top: 75%; left: 20%; animation-delay: 6s; }
+    .icon4 { top: 60%; left: 70%; animation-delay: 9s; }
+
+    @keyframes floatIcons {
+      0%,100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-30px) rotate(20deg); }
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #10b981, #047857);
+      padding: 25px 15px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 25px;
+      text-align: center;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #047857, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Hero Section (Home) */
+    #home {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border-radius: 24px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 60px 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    #home h2 {
+      font-size: 2.2rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #047857, #10b981);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #10b981, #047857);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Cards for About + Initiatives */
+    .card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      margin: 40px auto;
+      border-radius: 24px;
+      max-width: 900px;
+      padding: 50px 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 18px;
+      margin: 25px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #047857, #065f46);
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 15px;
+      margin-top: 60px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+      section h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Floating Eco Icons -->
+  <div class="floating-icon icon1">🌱</div>
+  <div class="floating-icon icon2">☀️</div>
+  <div class="floating-icon icon3">🌳</div>
+  <div class="floating-icon icon4">🍃</div>
+
   <header>
     <h1>🌍 Carbon-Free Initiative</h1>
     <nav>
@@ -36,18 +227,19 @@
   <section id="home" class="active">
     <h2>Welcome to the Carbon-Free Initiative</h2>
     <p>We are committed to creating a sustainable future by promoting eco-friendly practices, renewable energy, and tree planting initiatives.</p>
+    <a href="#" class="cta-btn" onclick="showPage('initiatives')">Explore Our Initiatives</a>
     <img src="https://carbon-awareness-site.s3.us-east-1.amazonaws.com/photo-1501785888041-af3ef285b470.jpeg" alt="Forest">
   </section>
 
   <!-- About Page -->
-  <section id="about">
+  <section id="about" class="card">
     <h2>About Us</h2>
     <p>The Carbon-Free Initiative is a movement to inspire individuals and communities to reduce their carbon footprint. Together, we can tackle climate change and build a greener planet.</p>
     <img src="https://carbon-awareness-site.s3.us-east-1.amazonaws.com/photo-1501004318641-b39e6451bec6.jpeg" alt="Solar panels">
   </section>
 
   <!-- Initiatives Page -->
-  <section id="initiatives">
+  <section id="initiatives" class="card">
     <h2>Our Initiatives</h2>
     <p>✔ Planting trees to absorb CO₂<br>✔ Promoting renewable energy like solar and wind<br>✔ Educating communities about sustainability<br>✔ Encouraging green transportation</p>
     <img src="https://carbon-awareness-site.s3.us-east-1.amazonaws.com/photo-1523978591478-c753949ff840.jpeg" alt="Tree planting">
@@ -59,8 +251,15 @@
 
   <script>
     function showPage(pageId) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(pageId).classList.add("active");
+      document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+        sec.style.opacity = 0;
+      });
+      const newPage = document.getElementById(pageId);
+      setTimeout(() => {
+        newPage.classList.add("active");
+        newPage.style.opacity = 1;
+      }, 200);
     }
   </script>
 </body>
